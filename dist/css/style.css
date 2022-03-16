@@ -384,6 +384,36 @@
 .accordion__list-item:last-child {
   border-bottom: none;
 }
+.accordion__years {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  font-size: 13px;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+.accordion__years li {
+  padding: 4px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #b5b5bd;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+.accordion__years li.active {
+  background-color: #502df0;
+  color: #fff;
+}
+.accordion__years li:hover {
+  color: #fff;
+}
 @media (max-width: 1050px) {
   .accordion__label {
     display: block;
