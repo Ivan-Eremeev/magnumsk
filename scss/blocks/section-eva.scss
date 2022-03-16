@@ -20,6 +20,7 @@
     background: linear-gradient(0.0deg, #5929f5 -25%, #f94190 50%, #ffbd47 125%);
     font-weight: 300;
     position: relative;
+    transition: 0.3s;
     &:before {
       content: '';
       display: block;
@@ -29,6 +30,9 @@
       bottom: 2px;
       left: 2px;
       right: 2px;
+    }
+    &:hover {
+      box-shadow: 0 10px 20px rgba(143,49,210,.3);
     }
   }
   &__item-title {
@@ -50,6 +54,53 @@
     position: relative;
     z-index: 2;
   }
+  &__pagination {
+    display: flex;
+    align-items: center;
+    font-weight: 300;
+  }
+  &__pagination-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    background-color: #100a2f;
+    border-radius: 5px;
+    border-bottom: none;
+    svg {
+      fill: #3d3853;
+      transition: 0.2s;
+    }
+    &:hover {
+      background-color: #502df0;
+      svg {
+        fill: #fff;
+      }
+    }
+  }
+  &__pagination-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 20px;
+    li {
+      a {
+        padding: 10px 5px;
+        color: #71717b;
+        border-bottom: none;
+        &:hover {
+          color: #fff;
+        }
+      }
+      span {
+        color: #71717b;
+      }
+    }
+  }
+  &__pagination-active {
+    color: #fff !important;
+  }
   @media (max-width: $break_xs) {
     .title-site_h1 {
       margin-bottom: 30px;
@@ -59,6 +110,9 @@
     }
     &__col {
       margin-top: 20px;
+    }
+    &__pagination {
+      justify-content: center;
     }
   }
 }
