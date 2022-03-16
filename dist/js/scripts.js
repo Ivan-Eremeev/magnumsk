@@ -22,52 +22,175 @@ $(document).ready(function () {
 	// libs-settings/google-map-settings.js
 	// mailto-ajax.js
 
-	// Запрет перехода по ссылкам с хэшем
-	$('a[href="#"]').click(function(e) {
-		e.preventDefault();
+	// Аккордеон
+	function accordion() {
+		if ($('.accordion').length) {
+			$('.accordion').each(function () {
+				var accordion = $(this),
+					trigger = accordion.find('.accordion__trigger'),
+					content = accordion.find('.accordion__content'),
+					time = 300;
+				trigger.on('click', function () {
+					var $thisTrigger = $(this),
+						data = $thisTrigger.data('trigger');
+					if (!$thisTrigger.hasClass('active')) {
+						content.slideUp(
+							time,
+							function () {
+								$(this).removeClass('open')
+							}
+						);
+						trigger.removeClass('active');
+						$thisTrigger.addClass('active');
+						accordion.find('#' + data).stop().slideDown(
+							time,
+							function () {
+								$(this).addClass('open')
+							}
+						);
+					} else {
+						$thisTrigger.removeClass('active');
+						accordion.find('#' + data).stop().slideUp(
+							time,
+							function () {
+								$(this).removeClass('open')
+							}
+						);
+					}
+				})
+			})
+		}
+	}
+	accordion();
+
+	// Hightcharts | Графики
+	Highcharts.setOptions({
+		chart: {
+			type: 'column',
+			backgroundColor: '#180f46',
+			borderWidth: 0,
+			plotBackgroundColor: '#180f46',
+			plotShadow: false,
+			plotBorderWidth: 0,
+			spacingBottom: 10,
+			spacingTop: 10,
+			spacingLeft: 5,
+			spacingRight: 5,
+		},
+		title: false,
+		legend: false,
+		xAxis: {
+			categories: [
+				'Jan',
+				'Feb',
+				'Mar',
+				'Apr',
+				'May',
+				'Jun',
+				'Jul',
+				'Aug',
+				'Sep',
+				'Oct',
+				'Nov',
+				'Dec'
+			],
+			crosshair: true,
+			labels: {
+				style: {
+					color: '#b5b5bd',
+				}
+			}
+		},
+		yAxis: {
+			title: false,
+			labels: {
+				style: {
+					color: '#b5b5bd',
+				}
+			},
+			gridLineColor: '#261d5a',
+		},
+		plotOptions: {
+			series: {
+				pointPadding: 0.05,
+				groupPadding: 0,
+				borderWidth: 0,
+				shadow: false,
+				dataLabels: {
+					enabled: true,
+				}
+			},
+			column: {
+				color: {
+					linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
+					stops: [
+						[0, '#31A877'],
+						[1, '#4B3EDE']
+					]
+				},
+			},
+		},
+		credits: {
+			enabled: false,
+		},
 	});
 
-	// Мобильное меню
-	function myMenu(menu) {
-		if (menu.length) {
-			menu.each(function () {
-				var $this = $(this),
-						menuBtn = $this.find('#menu-btn'),
-						over = $this.find('#menu-over'),
-						close = $this.find('#menu-close'),
-						body = $('body'),
-						scrollbarWidth;
-				menuBtn.on('click', toggleOpenMenu);
-				over.on('click', menuClose);
-				close.on('click', menuClose);
-				function menuOpen() { // Открывание меню
-					body.addClass('lock').css('padding-right', scrollbarWidth);
-					$this.addClass('open');
-					menuBtn.addClass('is-active');
-				}
-				function menuClose() { // Закрывание меню
-					body.removeClass('lock').css('padding-right', 0);
-					$this.removeClass('open');
-					menuBtn.removeClass('is-active');
-				}
-				function scrollbarWidthCalc() { // Вычисление ширины скролла
-					var documentWidth = parseInt(document.documentElement.clientWidth),
-							windowsWidth = parseInt(window.innerWidth);
-							scrollbarWidth = windowsWidth - documentWidth;
-				}
-				function toggleOpenMenu() { // Открывание/закрывание меню
-					if ($this.hasClass('open')) {
-						menuClose();
-					}else {
-						menuOpen();
-					}
-				}
-				scrollbarWidthCalc();
-				$(window).resize(scrollbarWidthCalc);
-			})
-		};
-	};
-	myMenu($('.js-menu'));
+	var chart1 = new Highcharts.Chart({
+		chart: {
+			renderTo: 'highcahrts',
+		},
+		series: [{
+			name: "Прирост",
+			data: [0.091, 2.043, 3.005, 3.003, 4.027, 5.003, 4.006, 3.076, 3.012, 2.015, 2.000, 1.095]
+		}]
+	});
+
+	// // Запрет перехода по ссылкам с хэшем
+	// $('a[href="#"]').click(function(e) {
+	// 	e.preventDefault();
+	// });
+
+	// // Мобильное меню
+	// function myMenu(menu) {
+	// 	if (menu.length) {
+	// 		menu.each(function () {
+	// 			var $this = $(this),
+	// 					menuBtn = $this.find('#menu-btn'),
+	// 					over = $this.find('#menu-over'),
+	// 					close = $this.find('#menu-close'),
+	// 					body = $('body'),
+	// 					scrollbarWidth;
+	// 			menuBtn.on('click', toggleOpenMenu);
+	// 			over.on('click', menuClose);
+	// 			close.on('click', menuClose);
+	// 			function menuOpen() { // Открывание меню
+	// 				body.addClass('lock').css('padding-right', scrollbarWidth);
+	// 				$this.addClass('open');
+	// 				menuBtn.addClass('is-active');
+	// 			}
+	// 			function menuClose() { // Закрывание меню
+	// 				body.removeClass('lock').css('padding-right', 0);
+	// 				$this.removeClass('open');
+	// 				menuBtn.removeClass('is-active');
+	// 			}
+	// 			function scrollbarWidthCalc() { // Вычисление ширины скролла
+	// 				var documentWidth = parseInt(document.documentElement.clientWidth),
+	// 						windowsWidth = parseInt(window.innerWidth);
+	// 						scrollbarWidth = windowsWidth - documentWidth;
+	// 			}
+	// 			function toggleOpenMenu() { // Открывание/закрывание меню
+	// 				if ($this.hasClass('open')) {
+	// 					menuClose();
+	// 				}else {
+	// 					menuOpen();
+	// 				}
+	// 			}
+	// 			scrollbarWidthCalc();
+	// 			$(window).resize(scrollbarWidthCalc);
+	// 		})
+	// 	};
+	// };
+	// myMenu($('.js-menu'));
 
 	// // Блок с высотой окна браузера
 	// function screenHeight(fullHeight) {
@@ -143,46 +266,38 @@ $(document).ready(function () {
 	// }
 	// tabs($('.js-tabs'));
 
-	// Аккордеон
-	function accordion() {
-		if ($('.accordion').length) {
-			$('.accordion').each(function () {
-				var accordion = $(this),
-					trigger = accordion.find('.accordion__trigger'),
-					content = accordion.find('.accordion__content'),
-					time = 300;
-				trigger.on('click', function () {
-					var $thisTrigger = $(this),
-						data = $thisTrigger.data('trigger');
-					if (!$thisTrigger.hasClass('active')) {
-						content.slideUp(
-							time,
-							function () {
-								$(this).removeClass('open')
-							}
-						);
-						trigger.removeClass('active');
-						$thisTrigger.addClass('active');
-						accordion.find('#' + data).stop().slideDown(
-							time,
-							function () {
-								$(this).addClass('open')
-							}
-						);
-					} else {
-						$thisTrigger.removeClass('active');
-						accordion.find('#' + data).stop().slideUp(
-							time,
-							function () {
-								$(this).removeClass('open')
-							}
-						);
-					}
-				})
-			})
-		}
-	}
-	accordion();
+	// // Аккордеон
+	// function accordion() {
+	// 	if ($('.accordion').length) {
+	// 		$('.accordion').each(function () {
+	// 			var accordion = $(this),
+	// 				trigger = accordion.find('.accordion__trigger'),
+	// 				time = 300;
+	// 			trigger.on('click', function () {
+	// 				var $thisTrigger = $(this),
+	// 					data = $thisTrigger.data('trigger');
+	// 				if (!$thisTrigger.hasClass('active')) {
+	// 					$thisTrigger.addClass('active');
+	// 					accordion.find('#' + data).stop().slideDown(
+	// 						time,
+	// 						function () {
+	// 							$(this).addClass('open')
+	// 						}
+	// 					);
+	// 				} else {
+	// 					$thisTrigger.removeClass('active');
+	// 					accordion.find('#' + data).stop().slideUp(
+	// 						time,
+	// 						function () {
+	// 							$(this).removeClass('open')
+	// 						}
+	// 					);
+	// 				}
+	// 			})
+	// 		})
+	// 	}
+	// }
+	// accordion();
 
 	// // Модальное окно
 	// function modal(modal) {

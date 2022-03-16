@@ -416,9 +416,16 @@
   }
   .accordion__grid {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr auto;
     grid-template-areas: ". . " ". . " "block block";
   }
+}
+.accordion .highcharts-data-label text {
+  fill: #fff !important;
+  font-weight: normal !important;
+}
+.accordion .highcharts-data-label text tspan {
+  stroke: none !important;
 }
 @media (max-width: 500px) {
   .accordion__trigger .accordion__col:after {

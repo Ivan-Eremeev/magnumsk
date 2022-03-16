@@ -209,11 +209,20 @@
     }
     &__grid {
       grid-template-columns: 1fr 1fr; 
-      grid-template-rows: 1fr 1fr 1fr; 
+      grid-template-rows: 1fr 1fr auto; 
       grid-template-areas: 
       ". . "
       ". . "
       "block block"; 
+    }
+  }
+  .highcharts-data-label {
+    text {
+      fill: #fff !important;
+      font-weight: normal !important;
+      tspan {
+        stroke: none !important;
+      }
     }
   }
   @media (max-width: $break_xs) {
