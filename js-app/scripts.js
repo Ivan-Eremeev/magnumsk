@@ -137,7 +137,27 @@ $(document).ready(function () {
 
 	var chart1 = new Highcharts.Chart({
 		chart: {
-			renderTo: 'highcahrts',
+			renderTo: 'highcahrts_0',
+		},
+		series: [{
+			name: "Прирост",
+			data: [0.091, 2.043, 3.005, 3.003, 4.027, 5.003, 4.006, 3.076, 3.012, 2.015, 2.000, 1.095]
+		}]
+	});
+
+	var chart2 = new Highcharts.Chart({
+		chart: {
+			renderTo: 'highcahrts_1',
+		},
+		series: [{
+			name: "Прирост",
+			data: [0.091, 2.043, 3.005, 3.003, 4.027, 5.003, 4.006, 3.076, 3.012, 2.015, 2.000, 1.095]
+		}]
+	});
+
+	var chart3 = new Highcharts.Chart({
+		chart: {
+			renderTo: 'highcahrts_2',
 		},
 		series: [{
 			name: "Прирост",

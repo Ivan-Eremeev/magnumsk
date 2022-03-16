@@ -197,6 +197,9 @@
 .accordion__content {
   display: none;
 }
+.accordion__content.open {
+  display: block;
+}
 .accordion__head {
   background-color: #100a2f;
 }

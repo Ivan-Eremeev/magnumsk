@@ -62,7 +62,7 @@ block content
 							.accordion__col Время работы
 							.accordion__col Прибыль / В процентах
 				.accordion__item
-					.accordion__trigger(data-trigger="trigger_1") 
+					.accordion__trigger.active(data-trigger="trigger_1") 
 						.accordion__flex
 							.accordion__col-num 01
 							.accordion__row
@@ -80,7 +80,7 @@ block content
 									| +854 USDT 
 									span.accordion__span-red (+6,86%)
 						.accordion__plus 
-					#trigger_1.accordion__content
+					#trigger_1.accordion__content.open
 						.accordion__grid
 							.accordion__block 
 								.accordion__block-column
@@ -143,15 +143,173 @@ block content
 											span.accordion__span-green (+6,56%)
 							.accordion__block.accordion__block--big 
 								.accordion__title Ежемесячный прирост:
-								#highcahrts
+								#highcahrts_0
 				.accordion__item
-					.accordion__trigger(data-trigger="trigger_2") triger 2
+					.accordion__trigger(data-trigger="trigger_2") 
+						.accordion__flex
+							.accordion__col-num 02
+							.accordion__row
+								.accordion__col 
+									.accordion__label Имя
+									| Иван Пупкин
+								.accordion__col 
+									.accordion__label Депозит
+									| 10 000 USDT
+								.accordion__col 
+									.accordion__label Время работы
+									| 3 недели
+								.accordion__col 
+									.accordion__label Прибыль / В процентах
+									| +854 USDT 
+									span.accordion__span-red (+6,86%)
+						.accordion__plus 
 					#trigger_2.accordion__content
-						| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel consequatur, obcaecati repellendus laboriosam at quos, similique saepe hic vero fugit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet quibusdam temporibus officia molestias assumenda, sint deserunt nemo quas dolores fuga maxime, soluta provident blanditiis magni ipsum totam expedita quasi ipsa.
+						.accordion__grid
+							.accordion__block 
+								.accordion__block-column
+									.accordion__title
+										div Баланс 
+											span.accordion__gray USDT:
+										div 100 000,00
+									.accordion__line-block
+										.accordion__line-title 
+											div Загрузка:
+											div 25,6% (max: 86,1%)
+										.accordion__line
+											span(style="width: 74.4%")
+							.accordion__block 
+								.accordion__block-column
+									.accordion__title 
+										div Прибыль:
+										div 
+											span.accordion__span-green.accordion__span-bold +25,7% 
+											span.accordion__span-mini 100 000,21 USDT
+									.accordion__line-block
+										.accordion__line-title 
+											div Просадка:
+											div 8% (max: 22,4%)
+										.accordion__line
+											span(style="width: 92%")
+							.accordion__block 
+								.accordion__title Данный счёт:
+								ul.accordion__list 
+									li.accordion__list-item
+										span Работает с:
+										span 25.01.2022
+									li.accordion__list-item
+										span Торговых пар:
+										span 8
+									li.accordion__list-item
+										span Всего ордеров:
+										span 256
+									li.accordion__list-item
+										span Торговый объём:
+										span 25 039 USDT
+							.accordion__block 
+								.accordion__title Прибыль:
+								ul.accordion__list 
+									li.accordion__list-item
+										span За день:
+										span 25 USDT 
+											span.accordion__span-green (+6,56%)
+									li.accordion__list-item
+										span За неделю:
+										span 125 USDT 
+											span.accordion__span-red (-6,56%)
+									li.accordion__list-item
+										span За месяц:
+										span 1 125 USDT 
+											span.accordion__span-green (+6,56%)
+									li.accordion__list-item
+										span За год:
+										span 11 125 USDT 
+											span.accordion__span-green (+6,56%)
+							.accordion__block.accordion__block--big 
+								.accordion__title Ежемесячный прирост:
+								#highcahrts_1
 				.accordion__item
-					.accordion__trigger(data-trigger="trigger_3") triger 3
+					.accordion__trigger(data-trigger="trigger_3") 
+						.accordion__flex
+							.accordion__col-num 03
+							.accordion__row
+								.accordion__col 
+									.accordion__label Имя
+									| Иван Пупкин
+								.accordion__col 
+									.accordion__label Депозит
+									| 10 000 USDT
+								.accordion__col 
+									.accordion__label Время работы
+									| 3 недели
+								.accordion__col 
+									.accordion__label Прибыль / В процентах
+									| +854 USDT 
+									span.accordion__span-red (+6,86%)
+						.accordion__plus 
 					#trigger_3.accordion__content
-						| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel consequatur, obcaecati repellendus laboriosam at quos, similique saepe hic vero fugit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet quibusdam temporibus officia molestias assumenda, sint deserunt nemo quas dolores fuga maxime, soluta provident blanditiis magni ipsum totam expedita quasi ipsa.
+						.accordion__grid
+							.accordion__block 
+								.accordion__block-column
+									.accordion__title
+										div Баланс 
+											span.accordion__gray USDT:
+										div 100 000,00
+									.accordion__line-block
+										.accordion__line-title 
+											div Загрузка:
+											div 25,6% (max: 86,1%)
+										.accordion__line
+											span(style="width: 74.4%")
+							.accordion__block 
+								.accordion__block-column
+									.accordion__title 
+										div Прибыль:
+										div 
+											span.accordion__span-green.accordion__span-bold +25,7% 
+											span.accordion__span-mini 100 000,21 USDT
+									.accordion__line-block
+										.accordion__line-title 
+											div Просадка:
+											div 8% (max: 22,4%)
+										.accordion__line
+											span(style="width: 92%")
+							.accordion__block 
+								.accordion__title Данный счёт:
+								ul.accordion__list 
+									li.accordion__list-item
+										span Работает с:
+										span 25.01.2022
+									li.accordion__list-item
+										span Торговых пар:
+										span 8
+									li.accordion__list-item
+										span Всего ордеров:
+										span 256
+									li.accordion__list-item
+										span Торговый объём:
+										span 25 039 USDT
+							.accordion__block 
+								.accordion__title Прибыль:
+								ul.accordion__list 
+									li.accordion__list-item
+										span За день:
+										span 25 USDT 
+											span.accordion__span-green (+6,56%)
+									li.accordion__list-item
+										span За неделю:
+										span 125 USDT 
+											span.accordion__span-red (-6,56%)
+									li.accordion__list-item
+										span За месяц:
+										span 1 125 USDT 
+											span.accordion__span-green (+6,56%)
+									li.accordion__list-item
+										span За год:
+										span 11 125 USDT 
+											span.accordion__span-green (+6,56%)
+							.accordion__block.accordion__block--big 
+								.accordion__title Ежемесячный прирост:
+								#highcahrts_2
 			// /accordion
 
 			.section-eva__pagination 

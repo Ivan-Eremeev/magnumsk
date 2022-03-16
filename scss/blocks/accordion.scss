@@ -37,6 +37,9 @@
   }
   &__content {
     display: none;
+    &.open {
+      display: block;
+    }
   }
   &__head {
     background-color: #100a2f;
