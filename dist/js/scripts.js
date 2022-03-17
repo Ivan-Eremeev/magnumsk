@@ -31,14 +31,13 @@ $(document).ready(function () {
 							}
 						);
 					} else {
-						// $thisTrigger.removeClass('active');
-						// accordion.find('#' + data).stop().slideUp(
-						// 	time,
-						// 	function () {
-						// 		$(this).removeClass('open')
-						// 	}
-						// );
-						return false;
+						$thisTrigger.removeClass('active');
+						accordion.find('#' + data).stop().slideUp(
+							time,
+							function () {
+								$(this).removeClass('open')
+							}
+						);
 					}
 				})
 			})
